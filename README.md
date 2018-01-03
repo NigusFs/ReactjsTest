@@ -1,6 +1,3 @@
-# ReactjsTest
-ayura por fivor
-
 # Avances
 
 ## Es algo super simple con nodejs, monte un servidor en el puerto 80 con 2 rutas.
