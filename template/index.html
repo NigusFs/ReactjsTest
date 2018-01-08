@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test1</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+    </div>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header text-center">
+                            Test1
+                        </h1>
+                    </div>
+                </div>
+
+                <div class = "row">
+                  <div class = "panel panel-primary">
+                    <div class= "panel-heading ">
+                        <h1 class = "text-center" >Comentarios</h1>
+                    </div>
+                    <div class = "panel-body">
+                      <div id="root"></div>
+                      <div id="test"></div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+        <!-- </div> -->
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+
+
+
+
+    <script type="text/babel">
+
+      class Comment extends React.Component{
+
+        render(){
+          return (
+            <div className = "row">
+              <div className = "col-lg-4">
+              </div>
+              <div className = "col-lg-4">
+                <div className = "panel panel-default">
+                  <div className = "panel-heading">
+                    <p> Comentario Nro : {this.props.id}</p>
+                  </div>
+                  <div className = "panel-body">
+                    <p> {this.props.comment} </p>
+                  </div>
+                </div>
+              </div>
+              <div className = "col-lg-4">
+              </div>
+            </div>
+           );
+        }
+      }
+
+      ReactDOM.render(
+        <div>
+          <Comment id = "1" comment="Hola"/>
+          <Comment id = "2" comment="Como"/>
+          <Comment id = "3" comment="Estas"/>
+          <Comment id = "4" comment="Marica"/>
+        </div>,
+        document.getElementById('test')
+      );
+
+    </script>
+    <!-- jQuery -->
+    <script src="../static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../static/js/plugins/morris/raphael.min.js"></script>
+    <script src="../static/js/plugins/morris/morris.min.js"></script>
+    <script src="../static/js/plugins/morris/morris-data.js"></script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      To set up a production-ready React build environment, follow these instructions:
+      * https://reactjs.org/docs/add-react-to-a-new-app.html
+      * https://reactjs.org/docs/add-react-to-an-existing-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      * https://reactjs.org/docs/react-without-jsx.html
+      * https://reactjs.org/docs/cdn-links.html
+    -->
+  </body>
+</html>
