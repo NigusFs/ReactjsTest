@@ -1,5 +1,5 @@
 import React from 'react';
-import Comment from './../raw/comment';
+import ManagerComments from './../raw/manager';
 import FrontImage from './../raw/frontImage';
 import Header from './../header/nav.js';
 class HomePage extends React.Component{
@@ -16,9 +16,7 @@ class HomePage extends React.Component{
                   Comentarios:
                 </div>
                 <div className="panel-body">
-                  <Comment id = "1"> Hola </Comment>
-                  <Comment id = "2"> Como  </Comment>
-                  <Comment id = "3"> Estas </Comment>
+                  <ManagerComments/>
                 </div>
               </div>
             </div>

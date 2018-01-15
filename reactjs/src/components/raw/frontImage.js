@@ -5,7 +5,7 @@ import './../../css/App.css'
 class FrontImage extends React.Component {
   render() {
     return (
-        <div className="panel panel-primary">
+        <div className="panel">
           <div className="panel-body">
             <div className="row text-center">
               <div className="col-lg-6">

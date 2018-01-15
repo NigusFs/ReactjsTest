@@ -1,7 +1,5 @@
 import React from 'react';
-import Comment from './../raw/comment';
 import FrontImage from './../raw/frontImage';
-import Header from './../header/nav';
 import {Link} from 'react-router-dom';
 class LoginPage extends React.Component{
     render(){

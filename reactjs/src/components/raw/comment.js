@@ -5,33 +5,46 @@ class Comment extends React.Component{
   constructor(props){
     super(props);
     this.state = { editing : false};
+    this.editComment = this.editComment.bind(this);
+    this.answerComment = this.answerComment.bind(this);
+    this.saveComment = this.saveComment.bind(this);
+    this.cancelComment = this.cancelComment.bind(this);
+    this.deleteComment = this.deleteComment.bind(this);
   }
 
-  editComment = () => {
+  editComment(){
     this.setState({
       editing : true
     });
   }
 
-  answerComment = () =>{
+  answerComment(){
     alert("Respondiendo comentario nro : " + this.props.id.toString());
   }
 
-  saveComment = () => {
+  saveComment(){
+    var comment = this.refs.newComment.value;
+    this.props.updateCommentText(comment,this.props.index)
+    this.setState({
+       editing : false
+     });
+
+  }
+
+  cancelComment(){
     this.setState({
        editing : false
      });
   }
 
-  cancelComment = () => {
-    this.setState({
-       editing : false
-     });
+  deleteComment(){
+    this.props.removeCommentText(this.props.index)
   }
 
   renderNormal(){
     return (
       <div className = "row">
+
         <div className = "col-lg-3">
           <br/>
         </div>
@@ -45,11 +58,11 @@ class Comment extends React.Component{
                 <p> {this.props.children} </p>
               </div>
               <div className = "row">
-                <button type="button" onClick = {this.editComment} className="btn btn-info"> Editar comentario </button>
+                <button type="button" onClick = {this.editComment} className="btn btn-info"> Editar </button>
               </div>
               <br/>
               <div className="row">
-                <button type="button" onClick = {this.answerComment} className="btn btn-primary"> Responder comentario </button>
+                <button type="button" onClick = {this.deleteComment} className="btn btn-danger"> borrar</button>
               </div>
             </div>
           </div>
@@ -73,7 +86,7 @@ class Comment extends React.Component{
 
           <div className = "panel panel-default">
             <div className = "panel-heading text-center">
-                <p> Comentario Nro : {this.props.id} </p>
+                <p> Comentario Nro : {this.props.index} </p>
             </div>
 
             <div className = "panel-body text-center">
@@ -81,7 +94,8 @@ class Comment extends React.Component{
                 <div className = "col-lg-2">
                 </div>
                 <div className = "col-lg-8">
-                  <input className="form-control" type="text" value={this.props.children}/>
+
+                  <input className="form-control" ref="newComment" type="text" defaultValue ={this.props.children}/>
                   <br/>
                 </div>
                 <div className = "col-lg-2">
