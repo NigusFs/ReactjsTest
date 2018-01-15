@@ -22,9 +22,10 @@ class Datetime extends React.Component{
       date: new Date()
     });
   }
+  
   render(){
     return (
-      <div>
+      <div className="row">
         <h1> La hora de hoy es !</h1>
         <h2>{ this.state.date.toLocaleTimeString()}.</h2>
       </div>

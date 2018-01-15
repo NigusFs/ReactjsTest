@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import Date from './date.js';
-// <!-- App.css -->
-import './App.css';
-
-class App extends Component {
-  render() {
+import React from 'react';
+import HomePage from './components/pages/homepage';
+import LoginPage from './components/pages/loginpage';
+import{
+  BrowserRouter as Router,
+  Route
+//  Link
+} from 'react-router-dom';
+import './import_index';
+class App extends React.Component {
+  render(){
     return (
-        <div className="panel text-center">
-          <div className="row">
-            <div className="col-lg-6">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title"> Desarrollando con ReactJs. </h1>
-            </div>
-            <div className="col-lg-6">
-              <Date> </Date>
-            </div>
-          </div>
+      <Router>
+        <div>
+
+          <Route exact path = '/' component = {HomePage} />
+          <Route exact path = '/login' component = {LoginPage} />
+
         </div>
+      </Router>
     );
   }
 }

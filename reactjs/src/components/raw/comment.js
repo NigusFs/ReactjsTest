@@ -23,6 +23,12 @@ class Comment extends React.Component{
      });
   }
 
+  cancelComment = () => {
+    this.setState({
+       editing : false
+     });
+  }
+
   renderNormal(){
     return (
       <div className = "row">
@@ -39,12 +45,11 @@ class Comment extends React.Component{
                 <p> {this.props.children} </p>
               </div>
               <div className = "row">
-                <div className = "col-lg-6">
-                  <button type="button" onClick = {this.editComment} className="btn btn-info"> Editar comentario </button>
-                </div>
-                <div className = "col-lg-6">
-                  <button type="button" onClick = {this.answerComment} className="btn btn-primary"> Responder comentario </button>
-                </div>
+                <button type="button" onClick = {this.editComment} className="btn btn-info"> Editar comentario </button>
+              </div>
+              <br/>
+              <div className="row">
+                <button type="button" onClick = {this.answerComment} className="btn btn-primary"> Responder comentario </button>
               </div>
             </div>
           </div>
@@ -73,10 +78,21 @@ class Comment extends React.Component{
 
             <div className = "panel-body text-center">
               <div className="row">
-                <textarea > </textarea>
+                <div className = "col-lg-2">
+                </div>
+                <div className = "col-lg-8">
+                  <input className="form-control" type="text" value={this.props.children}/>
+                  <br/>
+                </div>
+                <div className = "col-lg-2">
+                </div>
               </div>
               <div className="row">
                 <button type="button" onClick = {this.saveComment} className="btn btn-success"> Guardar </button>
+              </div>
+              <br/>
+              <div className="row">
+                <button type="button" onClick = {this.cancelComment} className="btn btn-danger"> Cancelar </button>
               </div>
             </div>
           </div>
