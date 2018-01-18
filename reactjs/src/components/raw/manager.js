@@ -1,5 +1,6 @@
 import React from 'react';
 import Comment from './comment';
+import ids from 'short-id';
 class ManagerComments extends React.Component{
   constructor(props){
     super(props);
@@ -33,9 +34,9 @@ class ManagerComments extends React.Component{
   }
 
 
-  eachComment(text,i){
+  eachComment(text,pos){
     return (
-        <Comment removeCommentText = {this.removeComment} updateCommentText = {this.updateComment} index = {i} >
+        <Comment removeCommentText = {this.removeComment} updateCommentText = {this.updateComment} pos = {pos} key = {ids.generate()}>
       {text} </Comment>);
   }
 
@@ -44,15 +45,21 @@ class ManagerComments extends React.Component{
     <div>
       <div className="text-center">
 
-        <div className="row text-center" >
+        <div className="row" >
             <div className="container-fluid">
-              <label for="comment">  Ingrese texto del comentario : </label>
-              <input id ="comment" ref="newText" className="form-control" type="text"/>
+              <div className="panel panel-default">
+                <div className="panel-heading">
+                  <label htmlFor="comment">  Agregar comentarios : </label>
+                </div>
+                <div className="panel-body">
+                  <input id ="comment" ref="newText" className="form-control" type="text"/>
+                  <br/>
+                  <div className="row">
+                  <button type="button" onClick = {this.addComment} className="btn btn-info"> Aceptar </button>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-        <br/>
-        <div className="row">
-          <button type="button" onClick = {this.addComment} className="btn btn-info"> Agregar comentario</button>
         </div>
 
       </div>
@@ -63,5 +70,4 @@ class ManagerComments extends React.Component{
 
   }
 }
-
 export default ManagerComments;

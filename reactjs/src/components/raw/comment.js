@@ -24,7 +24,7 @@ class Comment extends React.Component{
 
   saveComment(){
     var comment = this.refs.newComment.value;
-    this.props.updateCommentText(comment,this.props.index)
+    this.props.updateCommentText(comment,this.props.pos)
     this.setState({
        editing : false
      });
@@ -38,7 +38,7 @@ class Comment extends React.Component{
   }
 
   deleteComment(){
-    this.props.removeCommentText(this.props.index)
+    this.props.removeCommentText(this.props.pos)
   }
 
   renderNormal(){
@@ -51,7 +51,7 @@ class Comment extends React.Component{
         <div className = "col-lg-6">
           <div className = "panel panel-default">
             <div className = "panel-heading text-center">
-                <p> Comentario Nro : {this.props.id} </p>
+                <p> Comentario Nro : {this.props.pos} </p>
             </div>
             <div className = "panel-body text-center">
               <div className = "row">
