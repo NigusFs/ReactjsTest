@@ -9,6 +9,7 @@ class HomePage extends React.Component{
           <Header/>
           <div className="page-wrapper">
             <FrontImage/>
+
             <div className="container-fluid">
               <br/>
               <div className="panel panel-primary">

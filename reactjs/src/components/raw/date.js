@@ -7,10 +7,10 @@ class Datetime extends React.Component{
   }
 
   componentDidMount(){
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
+      this.timerID = setInterval(
+        () => this.tick(),
+        1000
+      );
   }
 
   componentWillDismount(){
@@ -18,14 +18,16 @@ class Datetime extends React.Component{
   }
 
   tick(){
-    this.setState({
-      date: new Date()
-    });
+    if(this.refs.myRef){
+      this.setState({
+        date: new Date()
+      });
+    }
   }
 
   render(){
     return (
-      <div className="row">
+      <div className="row" ref="myRef">
         <h1> La hora de hoy es !</h1>
         <h2>{ this.state.date.toLocaleTimeString()}.</h2>
       </div>

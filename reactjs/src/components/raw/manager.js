@@ -5,7 +5,7 @@ class ManagerComments extends React.Component{
   constructor(props){
     super(props);
     this.state = { comments : [
-      'a,,',
+      'a',
       'terminando el producto',
       'cachando como funciona'
     ] }
@@ -28,16 +28,23 @@ class ManagerComments extends React.Component{
   }
 
   addComment(){
-    var arr = this.state.comments;
-    arr.unshift(this.refs.newText.value);
-    this.setState({comments:arr});
+    let arr = this.state.comments;
+    let comment = this.refs.newText.value;
+    if( comment.toString().length > 0){
+      arr.unshift(comment);
+      this.setState({comments:arr});
+    }
+    else {
+      alert(" ingrese un texto ")
+    }
   }
 
 
   eachComment(text,pos){
+    console.log(text.toString());
     return (
-        <Comment removeCommentText = {this.removeComment} updateCommentText = {this.updateComment} pos = {pos} key = {ids.generate()}>
-      {text} </Comment>);
+        <Comment comment = {text} removeCommentText = {this.removeComment} updateCommentText = {this.updateComment} pos = {pos} key = {ids.generate()}>
+       </Comment>);
   }
 
   render(){

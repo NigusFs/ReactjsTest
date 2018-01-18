@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './../../static/img/logo.svg';
 import Date from './date.js';
-import './../../css/App.css'
+import './../../css/App.css';
 class FrontImage extends React.Component {
   render() {
     return (

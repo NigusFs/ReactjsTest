@@ -4,7 +4,8 @@ class Comment extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = { editing : false};
+    this.state = { editing : false , comment : this.props.comment};
+    this.handleChange = this.handleChange.bind(this);
     this.editComment = this.editComment.bind(this);
     this.answerComment = this.answerComment.bind(this);
     this.saveComment = this.saveComment.bind(this);
@@ -31,6 +32,10 @@ class Comment extends React.Component{
 
   }
 
+  handleChange(event) {
+    this.setState({comment: event.target.value});
+  }
+
   cancelComment(){
     this.setState({
        editing : false
@@ -55,7 +60,7 @@ class Comment extends React.Component{
             </div>
             <div className = "panel-body text-center">
               <div className = "row">
-                <p> {this.props.children} </p>
+                <p> {this.props.comment} </p>
               </div>
               <div className = "row">
                 <button type="button" onClick = {this.editComment} className="btn btn-info"> Editar </button>
@@ -95,7 +100,7 @@ class Comment extends React.Component{
                 </div>
                 <div className = "col-lg-8">
 
-                  <input className="form-control" ref="newComment" type="text" defaultValue ={this.props.children}/>
+                  <input onChange = {this.handleChange} className="form-control" ref="newComment" type="text" defaultValue ={this.props.comment}/>
                   <br/>
                 </div>
                 <div className = "col-lg-2">

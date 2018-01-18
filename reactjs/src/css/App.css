@@ -4,7 +4,15 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 150px;
+  height: 139px;
+}
+
+.background-color{
+  background: url(./../static/img/images.jpeg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .App-header {
